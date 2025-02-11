@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-budget-details',
+  standalone: false,
+  templateUrl: './budget-details.component.html',
+  styleUrl: './budget-details.component.css'
+})
+export class BudgetDetailsComponent {
+
+}
