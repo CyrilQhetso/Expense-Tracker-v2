@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class NewTransactionBTNComponent {
 
+  hideLabel = true;
+
+  toggleLabel() {
+    this.hideLabel = false;
+    setTimeout(() => {
+      this.hideLabel = true;
+    }, 200);
+  }
 }

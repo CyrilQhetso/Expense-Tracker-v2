@@ -1,1 +1,29 @@
-<p>income-report works!</p>
+<section class="income-section">
+    <h4 class="income-title">
+        Income
+        <i class="fa-solid fa-arrow-trend-up income-icon"></i>
+    </h4>
+    <div class="income-content">
+        <div class="income-categories">
+            <ul>
+                <li class="category-primary"
+                    *ngIf="descendingLabelsArr.at(0)">
+                    {{ descendingLabelsArr.at(0) }}
+                </li>
+                <li class="category-secondary"
+                    *ngIf="descendingLabelsArr.at(1)">
+                    {{ descendingLabelsArr.at(1) }}
+                </li>
+                <li class="category-tertiary"
+                    *ngIf="descendingLabelsArr.at(2)">
+                    {{ descendingLabelsArr.at(2) }}
+                </li>
+            </ul>
+        </div>
+        <div class="income-chart">
+            <div class="chart-container">
+                <canvas id="transactionChartIncome"></canvas>
+            </div>
+        </div>
+    </div>
+</section>

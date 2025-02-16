@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class ReportComponent {
 
+  expenseChosen = true;
+  incomeChosen = false;
+
+  chosenExpense() {
+    this.expenseChosen = true;
+    this.incomeChosen = false;
+  }
+
+ chosenIncome() {
+  this.expenseChosen = false;
+  this.incomeChosen = true;
+ }
 }

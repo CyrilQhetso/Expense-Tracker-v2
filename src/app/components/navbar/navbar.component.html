@@ -1,1 +1,48 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo-container" [routerLink]="['/overview']">
+            <img class="logo" src="../../..assets/images/wallet.png" alt="logo image">
+            <h1 class="logo-text">Expense Manager</h1>
+        </div>
+        <div class="menu-container">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars menu-icon-bar" (click)="dropDownFn()"></i>
+            </div>
+            <div class="menu-links">
+                <ul class="menu-list">
+                    <li class="menu-item" routerLinkActive="active-color" [routerLink]="['/overview']">
+                        <a>Overview</a>
+                    </li>
+                    <li class="menu-item" routerLinkActive="active-color" [routerLink]="['/report']">
+                        <a>Report</a>
+                    </li>
+                    <li class="menu-item" routerLinkActive="active-color" [routerLink]="['/budget']">
+                        <a>Budget</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown-menu" [hidden]="!dropDown">
+        <ul class="dropdown-list">
+            <li class="dropdown-item"
+                routerLinkActive="drop-color"
+                (click)="dropDownFn()"
+                [routerLink]="['/overview']">
+                <a>Overview</a>
+            </li>
+            <li class="dropdown-item"
+                routerLinkActive="drop-color"
+                (click)="dropDownFn()"
+                [routerLink]="['/report']">
+                <a>Report</a>
+            </li>
+            <li class="dropdown-item"
+                routerLinkActive="drop-color"
+                (click)="dropDownFn()"
+                [routerLink]="['/budget']">
+                <a>Budget</a>
+            </li>
+        </ul>
+    </div>
+</nav>

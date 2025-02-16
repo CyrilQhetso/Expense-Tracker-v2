@@ -1,1 +1,75 @@
-<p>dialog works!</p>
+<section class="budget-section">
+    <div class="budget-container">
+        <h4 class="budget-title">Add New Budget</h4>
+        <div class="form-container">
+            <form (ngSubmit)="handleBudgetAction()"
+                  [formGroup]="addBudgetForm">
+                <div class="form-group">
+                    <input type="text"
+                           formControlName="budgetName"
+                           class="form-input"
+                           placeholder=" " />
+                    <label for="budget-name" class="form-label">
+                        Budget Name
+                    </label>
+                    <div *ngIf="addBudgetForm.get('budgetName')?.getError('maxlength')"
+                         class="error-message">
+                         Name exceeded max length
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number"
+                           formControlName="amount"
+                           class="form-input"
+                           placeholder=" " />
+                    <label for="amount" class="form-label">Amount</label>
+                    <i class="fa-solid fa-sterling-sign amount-icon"></i>
+                </div>
+                <div class="form-group">
+                    <select formControlName="budgetFor"
+                            class="form-select"
+                            placeholder=" ">
+                        <option value="food and drinks" class="option">Food and Drinks</option>
+                        <option value="shopping" class="option">Shopping</option>
+                        <option value="transport" class="option">Transport</option>
+                        <option value="house" class="option">House</option>
+                        <option value="entertainment" class="option">Entertainment</option>
+                        <option value="education" class="option">Education</option>
+                        <option value="healthcare" class="option">Healthcare</option>
+                        <option value="car" class="option">Car</option>
+                    </select>
+                    <label for="budgetFor" class="form-label">Budget For</label>
+                </div>
+                <div class="form-group">
+                    <input type="date"
+                           formControlName="dateForm"
+                           class="form-input"
+                           placeholder=" " />
+                    <label for="budget-period" class="form-label">Date from</label>
+                    <div *ngIf="addBudgetForm.getError('dateRange')"
+                         class="error-message">
+                         Date can not suprpass date to!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="date"
+                           formControlName="dateTo"
+                           class="form-input"
+                           placeholder=" " />
+                    <label for="budget-period" class="form-label">Date to</label>
+                </div>
+                <div class="button-group">
+                    <button type="submit"
+                            class="save-button"
+                            [disabled]="addBudgetForm.invalid">
+                            Save Budget
+                    </button>
+                    <button class="cancel-button"
+                            (click)="this.close.emit()">
+                            Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

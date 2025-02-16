@@ -1,1 +1,91 @@
-<p>transactions works!</p>
+<section>
+    <div class="filter-header">
+        <h3>Filter Search</h3>
+    </div>
+    <div class="filter-container">
+        <div class="date-search">
+            <div class="date-from">
+                <label for="date-from">From:</label>
+                <input type="date"
+                       [(ngModel)]="dateFromSearch"
+                       name="date-from"
+                       class="date-input">
+            </div>
+            <div class="date-to">
+                <label for="date-to">To:</label>
+                <input type="date"
+                       [(ngModel)]="dateToSearch"
+                       name="date-to"
+                       class="date-input">
+            </div>
+        </div>
+        <div class="filter-options">
+            <div class="category-search">
+                <label for="category-search">Category:</label>
+                <select [(ngModel)]="categorySearch"
+                        name="category-search"
+                        class="select-input">
+                        <option value="food and drink" class="option">Food and drinks</option>
+                        <option value="shopping" class="option">Shopping</option>
+                        <option value="transport" class="option">Transpor</option>
+                        <option value="housing" class="option">Housing</option>
+                        <option value="entertainment" class="option">Entertainment</option>
+                        <option value="education" class="option">Education</option>
+                        <option value="healthcare" class="option">Healthcare</option>
+                        <option value="car" class="option">Car</option>
+                </select>
+            </div>
+            <div class="amount-search">
+                <label for="amount-search">Amount:</label>
+                <input type="search"
+                       [(ngModel)]="amountSearch"
+                       name="amount-search"
+                       class="search-input" 
+                       placeholder="Enter amount" />
+            </div>
+            <div class="payment-search">
+                <label for="payment-search">Payment:</label>
+                <select [(ngModel)]="paymentSearch"
+                        name="payment-search"
+                        class="select-input">
+                    <option value="in cash" class="option">In Cash</option>
+                    <option value="credit card" class="option">Credit Card</option>
+                    <option value="debit card" class="option">Debit Card</option>
+                    <option value="online payment" class="option">Online Payment</option> 
+                </select>
+            </div>
+        </div>
+        <div class="clear-button-container">
+            <button class="clear-button"
+                    (click)="clearSearch()">
+                    Clear
+            </button>
+        </div>
+    </div>
+    <div class="transaction-header">
+        <div class="transaction-table-container">
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Payment Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transactionItem of transactionsTable | categorySearch : categorySearch | paymentSearch : paymentSearch | amountSearch : amountSearch | dateSearch : dateFromSearch : dateToSearch">
+                        <td>{{ transactionItem.type }}</td>
+                        <td>{{ transactionItem.category }}</td>
+                        <td [ngClass]="transactionItem.type === 'income' ? 'text-green' : 'text-red'">
+                            <i *ngIf="transactionItem.type == 'income'" class="fa-solid fa-plus text-green"></i>
+                            <i *ngIf="transactionItem.type == 'expense'" class="fa-solid fa-minus text-red"></i>
+                            {{ transactionItem.amount }}<i class="fa-solid fa-sterling-sign"></i>
+                        </td>
+                        <td>{{ transactionItem.paymentMethod }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

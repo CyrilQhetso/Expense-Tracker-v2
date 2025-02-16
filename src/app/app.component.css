@@ -1,0 +1,15 @@
+/* Styles for ngx-spinner */
+ngx-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 240, 240, 0.85);
+}
+
+/* Styles for the floating button */
+app-new-transaction-button {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 50;
+}

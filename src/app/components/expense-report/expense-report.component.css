@@ -1,0 +1,88 @@
+.expense-section {
+    margin-top: 2rem;
+}
+
+.expense-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.expense-icon {
+    color: #dc2626;
+    margin-left: 0.75rem;
+    font-size: 2.25rem;
+}
+
+.expense-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2.5rem;
+}
+
+.expense-categories {
+    width: 50%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.category-primary,
+.category-secondary,
+.category-tertiary {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: 0.75rem;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+    .category-primary,
+    .category-secondary,
+    .category-tertiary {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+}
+
+
+.category-primary {
+    background-color: var(--primary-color);
+    width: 100%;
+}
+
+.category-secondary {
+    background-color: var(--secondary-color);
+    width: 75%;
+}
+
+.category-tertiary {
+    background-color: var(--tertiary-color);
+    width: 50%;
+}
+
+.expense-chart {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    width: 50%;
+}
+
+@media (min-width: 1024px) {
+    .expense-chart {
+        justify-content: flex-end;
+        width: 33.3333%;
+    }
+}
+
+.chart-container {
+    width: 75%
+}

@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  dropDown = false;
+
+  dropDownFn() {
+    this.dropDown = !this.dropDown;
+  }
 }

@@ -1,1 +1,29 @@
-<p>expense-report works!</p>
+<section class="expense-section">
+    <h4 class="expense-title">
+        Expense
+        <i class="fa-solid fa-arrow-trend-down expense-icon"></i>
+    </h4>
+    <div class="expense-content">
+        <div class="expense-categories">
+            <ul>
+                <li class="category-primary"
+                    *ngIf="descendingLabelsArr.at(0)">
+                    {{ descendingLabelsArr.at(0) }}
+                </li>
+                <li class="category-secondary"
+                    *ngIf="descendingLabelsArr.at(1)">
+                    {{ descendingLabelsArr.at(1) }}
+                </li>
+                <li class="category-tertiary"
+                    *ngIf="descendingLabelsArr.at(2)">
+                    {{ descendingLabelsArr.at(2) }}
+                </li>
+            </ul>
+        </div>
+        <div class="expense-chart">
+            <div class="chart-container">
+                <canvas id="transactionChartExpense"></canvas>
+            </div>
+        </div>
+    </div>
+</section>

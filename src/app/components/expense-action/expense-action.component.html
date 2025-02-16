@@ -1,1 +1,52 @@
-<p>expense-action works!</p>
+<h3 class="expnes-title">Add new expense transaction</h3>
+<div class="expense-form-container">
+    <form (ngSubmit)="handleExpenseAction()"
+          [formGroup]="expenseActionForm">
+          
+          <div class="form-group">
+            <input type="number" 
+                   formControlName="amount"
+                   class="form-input"
+                   placeholder=" "/>
+            <label for="amount" class="form-label">Amount</label>
+            <i class="fa-solid fa-sterling-sign amount-icon"></i>
+          </div>
+          <div class="form-group">
+            <select formControlName="category"
+                    class="form-select"
+                    placeholder=" ">
+                    <option value="food and drinks" class="option">Food and Drinks</option>
+                    <option value="shopping" class="option">Shopping</option>
+                    <option value="transport" class="option">Transport</option>
+                    <option value="house" class="option">House</option>
+                    <option value="entertainment" class="option">Entertainment</option>
+                    <option value="education" class="option">Education</option>
+                    <option value="healthcare" class="option">Healthcare</option>
+                    <option value="car" class="option">Car</option>
+            </select>
+            <label for="category" class="form-label">Category</label>
+          </div>
+          <div class="form-group">
+            <select formControlName="paymentMethod"
+                    class="form-select"
+                    placeholder=" ">
+                    <option value="in cash" class="option">In Cash</option>
+                    <option value="credit card" class="option">Credit Card</option>
+                    <option value="debit card" class="option">Debit Card</option>
+                    <option value="online payment" class="option">Online Payment</option>
+            </select>
+            <label for="payment-method" class="form-label">Payment Method</label>
+          </div>
+          <div class="form-group">
+            <input type="date"
+                   formControlName="date"
+                   class="form-input"
+                   placeholder=" " />
+            <label for="date" class="form-label">Date</label>
+            <div *ngIf="expenseActionForm.get('date')?.getError('noFutureDate')" class="error-message">
+                Date can not in the future!
+            </div>
+          </div>
+          <button [disabled]="expenseActionForm.invalid" class="submit-button">Submit</button>
+    </form>
+</div>

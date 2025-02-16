@@ -1,1 +1,50 @@
-<p>income-action works!</p>
+<h3 class="income-title">Add new Income transaction</h3>
+<div class="income-form-container">
+    <form (ngSubmit)="handleIncomeAction()"
+          [formGroup]="incomeActionForm">
+
+          <div class="form-group">
+            <input type="number"
+                   formControlName="amount"
+                   class="form-input"
+                   placeholder=" " />
+            <label for="amount" class="form-label">Amount</label>
+            <i class="fa-solid fa-sterling-sign amount-icon"></i>
+          </div>
+          <div class="form-group">
+            <select formControlName="category"
+                    class="form-select"
+                    placeholder=" ">
+                <option value="salary" class="option">Salary</option>
+                <option value="investments" class="option">Investments</option>
+                <option value="allowance" class="option">Allowance</option>
+                <option value="bonus" class="option">Bonus</option>
+                <option value="other" class="option">Other</option>
+            </select>
+            <label for="category" class="form-label">Category</label>
+          </div>
+          <div class="form-group">
+            <select formControlName="paymentMethod"
+                    class="form-select"
+                    placeholder=" ">
+                <option value="in cash" class="option">In Cash</option>
+                <option value="credit card" class="option">Credit Card</option>
+                <option value="debit card" class="option">Debit Card</option>
+                <option value="online payment" class="option">Online Payment</option>
+            </select>
+            <label for="payment-method" class="form-label">Payment Method</label>
+          </div>
+          <div class="form-group">
+            <input type="date"
+                   formControlName="date"
+                   class="form-input"
+                   placeholder=" " />
+                <label for="date" class="form-label">Date</label>
+                <div *ngIf="incomeActionForm.get('date')?.getError('noFutureDate')"
+                    class="error-message">
+                    Date can not be in the future!
+                </div>
+          </div>
+          <button [disabled]="incomeActionForm.invalid" class="submit-button">Submit</button>
+    </form>
+</div>

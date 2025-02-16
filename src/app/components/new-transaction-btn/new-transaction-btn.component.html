@@ -1,1 +1,13 @@
-<p>new-transaction-btn works!</p>
+<button class="button"
+        [routerLink]="['/newtransaction']"
+        (longPress)="toggleLabel()">
+        
+        <i class="fa-solid fa-plus icon"></i>
+        <span class="button-text">Add New Transaction</span>
+
+        <span [hidden]="hideLabel"
+              class="label">
+              Add New Transaction
+            <i class="label-icon fa-solid fa-caret-right"></i>
+        </span>
+</button>

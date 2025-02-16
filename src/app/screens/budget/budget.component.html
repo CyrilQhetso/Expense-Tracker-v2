@@ -1,1 +1,13 @@
-<p>budget works!</p>
+<div class="budget-container">
+    <div class="header">
+        <div class="header-text">
+            <p>Set budgets to track expenses</p>
+        </div>
+        <div class="add-budget-button"
+             (click)="openDialog()">
+             Add New Budget
+        </div>
+    </div>
+    <app-budget-details [budgets]="budgets"></app-budget-details>
+    <app-dialog *ngIf="showDialog" [budgets]="budgets" (close)="closeDialog()" class="dialog"></app-dialog>
+</div>

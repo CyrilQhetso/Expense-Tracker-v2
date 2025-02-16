@@ -1,1 +1,42 @@
-<p>budget-details works!</p>
+<section class="budget-section">
+    <div class="budget" *ngFor="let budget of budgetsCards">
+        <div class="card-content">
+            <div class="card-header">
+                <div class="card-details">
+                    <div class="budget-info">
+                        <div class="budget-name">
+                            <h4>{{ budget.budgetName }}</h4>
+                        </div>
+                        <div class="budget-amount">
+                            <span>Budget amount:</span>
+                            <h4>{{ budget.amount }}</h4>
+                        </div>
+                        <div class="budget-for">
+                            <span>Budget for:</span>
+                            <h4>{{ budget.budgetFor }}</h4>
+                        </div>
+                        <div class="budget-actions">
+                            <div class="budget-percentage">
+                                <span [ngClass]="{
+                                    'bg-green-500': (calculateProgress(budget) * 100) < 70,
+                                    'bg-yellow-500': (calculateProgress(budget) * 100) >= 70 && (calculateProgress(budget) * 100) < 90,
+                                    'bg-red-500': (calculateProgress(budget) * 100) >= 90 && (calculateProgress(budget) * 100) < 100,
+                                    'bg-red-800': (calculateProgress(budget) * 100) >= 100
+                                  }"> {{ (calculateProgress(budget) * 100).toFixed(0) }} %
+                                </span>
+                            </div>
+                            <div class="delete-button">
+                                <span (click)="deleteItemDromArray(budgetsCards, budget)">
+                                    Delete
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <span [style.width]="calculateProgress(budget) * 100 + '%'"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

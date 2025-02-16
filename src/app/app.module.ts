@@ -22,6 +22,9 @@ import { IncomeReportComponent } from './components/income-report/income-report.
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewTransactionBTNComponent } from './components/new-transaction-btn/new-transaction-btn.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,12 @@ import { TransactionsComponent } from './components/transactions/transactions.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

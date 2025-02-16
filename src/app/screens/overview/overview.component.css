@@ -1,0 +1,41 @@
+.wallet-container {
+    padding-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .wallet-container {
+        padding-top: 6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wallet-container {
+        padding-top: 7rem;
+    }
+}
+
+.wallet-header {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.wallet-header h2 {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .wallet-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wallet-header h2 {
+        font-size: 1.875rem;
+    }
+}
+
+.wallet-icon {
+    margin-right: 0.75rem;
+}

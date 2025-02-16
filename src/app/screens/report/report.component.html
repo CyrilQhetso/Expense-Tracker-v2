@@ -1,1 +1,20 @@
-<p>report works!</p>
+<div class="report-container">
+    <div class="header">
+        <div class="header-button-container">
+            <div class="header-button"
+                (click)="chosenExpense()"
+                [ngClass]="expenseChosen ? 'active' : ''">
+                Expense
+            </div>
+        </div>
+        <div class="header-button-container border-left">
+            <div class="header-button"
+                (click)="chosenIncome()"
+                [ngClass]="incomeChosen ? 'active' : ''">
+                Income
+            </div>
+        </div>
+    </div>
+</div>
+<app-expense-report *ngIf="expenseChosen"></app-expense-report>
+<app-income-report *ngIf="incomeChosen"></app-income-report>
